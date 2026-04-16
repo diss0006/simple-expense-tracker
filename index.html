@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Expense Tracker 1.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+    <header class="app__header">
+      <h1>Simple Expense Tracker 1.0</h1>
+    </header>
+
+    <main class="app">
+
+      <section class="summary-grid" aria-label="Financial summary">
+        <article class="summary-card">
+          <h2>Balance</h2>
+          <p id="balance" class="summary-card__value summary-card__value--balance">$0.00</p>
+        </article>
+        <article class="summary-card">
+          <h2>Income</h2>
+          <p id="income" class="summary-card__value summary-card__value--income">$0.00</p>
+        </article>
+        <article class="summary-card">
+          <h2>Expenses</h2>
+          <p id="expenses" class="summary-card__value summary-card__value--expense">$0.00</p>
+        </article>
+      </section>
+
+      <section class="dashboard">
+        <section class="panel form-panel" aria-label="Add new transaction">
+          <h2>New Entry</h2>
+          <form id="transaction-form">
+            <label for="description">Description</label>
+            <input
+              id="description"
+              name="description"
+              type="text"
+              placeholder="e.g. Freelance Payment"
+              required
+            />
+
+            <div class="form-row form-row--amount-category">
+              <div class="form-field">
+                <label for="amount">Amount</label>
+                <input id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required />
+              </div>
+              <div class="form-field">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                  <option value="Salary">Salary</option>
+                  <option value="Freelance">Freelance</option>
+                  <option value="Business">Business</option>
+                  <option value="Food & Dining">Food & Dining</option>
+                  <option value="Transportation">Transportation</option>
+                  <option value="Housing">Housing</option>
+                  <option value="Utilities">Utilities</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Education">Education</option>
+                  <option value="Travel">Travel</option>
+                  <option value="Insurance">Insurance</option>
+                  <option value="Investments">Investments</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button type="submit" class="btn btn--income" data-type="income">Record Income</button>
+              <button type="submit" class="btn btn--expense" data-type="expense">Record Expense</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel list-panel" aria-label="Transaction history">
+          <div class="list-panel__header">
+            <h2>Transactions</h2>
+            <button id="clear-all" class="btn btn--ghost" type="button">Clear All</button>
+          </div>
+          <ul id="transaction-list" class="transaction-list"></ul>
+          <p id="empty-state" class="empty-state">No transactions yet. Add your first entry.</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
